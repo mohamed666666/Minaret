@@ -11,7 +11,7 @@ class Sec1 extends Component {
                         <div className="title">
                             <p>Get <span>in Touch</span></p>
                         </div>
-                        <div className="sup-title frthcolor ">
+                        <div className="sup-title frthcolor mb-4">
                         Embark on Your Brand's Success Journey with Us
                         </div>
 

@@ -18,11 +18,11 @@ class Sec3 extends Component {
                 <div className='cards'>
                 {
                         media.map((card, index) => (
-                            <div key={index} className="card">
+                            <div key={index} className="card" style={{border:'1px  solid #FBC6AC'}}>
                                 <div className="card-header">
                                     {card.title}
                                 </div>
-                                <div className="card-content p-3">
+                                <div className="card-contents p-3" >
                                     {
                                         Object.entries(card.content).map(([key, value], i) => (
                                             <p key={i}> <strong className='secolor'>{key}:</strong> {value} </p>

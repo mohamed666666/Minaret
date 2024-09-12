@@ -386,6 +386,8 @@ display: flex;
 
     .card {
         padding: 0.5rem;
+        padding-right: 0;
+        /* padding-bottom: 0; */
         gap: 0.5rem;
     }
 
@@ -415,10 +417,12 @@ display: flex;
         width: 5rem;
     }
 
-    .btm3d {
-        width: 2.5rem;
-        height: 2.5rem;
+    .btm3d{
+        width: 4rem;
+        height: 4rem;
+        margin-bottom: -7px;
     }
+    /*  */
 
     .btm3d img {
         width: 2rem;
