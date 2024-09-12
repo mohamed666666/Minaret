@@ -39,7 +39,7 @@ const Contact =()=>{
 
         return (
             <section className=' bg1' >
-                {/* ref={cont_ref} */}
+                {/* */}
                 <div className='Contact-Container h-[600px]' >
 
                 <div className='left-contact  padc sm:px-4 lg:px-[80px]' >
@@ -55,7 +55,7 @@ const Contact =()=>{
                 </div>
 
 
-                <div className='right '>
+                <div className='right  '  ref={cont_ref}>
                     <img src={image} alt="" />
 
                 </div>
