@@ -42,7 +42,7 @@ const Contact =()=>{
                 {/* ref={cont_ref} */}
                 <div className='Contact-Container h-[600px]' >
 
-                <div className='left-contact animate-expandContract padc sm:px-4 lg:px-[80px]' >
+                <div className='left-contact  padc sm:px-4 lg:px-[80px]' >
                 <div className='title-contact text-[40px] uppercase  '> 
                     <p >Ready to elevate your brand?</p>
                 </div>
@@ -55,7 +55,7 @@ const Contact =()=>{
                 </div>
 
 
-                <div className='right animate-slideIn'>
+                <div className='right '>
                     <img src={image} alt="" />
 
                 </div>

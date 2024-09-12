@@ -5,13 +5,13 @@
 }
 .left-contact{
     display: flex;
-    width:90%;
+    /* width:90%; */
     /* height: 40vh; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    transition:width 5s ease-in-out;
+    /* transition:width 5s ease-in-out; */
     text-align: center;
     
 }
