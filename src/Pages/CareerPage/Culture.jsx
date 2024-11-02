@@ -3,92 +3,159 @@ import { Component } from "react";
 import img1 from '/Assets/images/career/1.png';
 import img2 from '/Assets/images/career/2.png';
 import img3 from '/Assets/images/career/3.png';
+import { withTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+
 class Culutre extends Component {
-    state = {  } 
+    state = {} 
     render() { 
+        const { t } = this.props;
+
+        const textVariants = {
+            hidden: { opacity: 0, y: -50 },
+            visible: { opacity: 1, y: 0 },
+        };
+
+        const imageVariants = {
+            hidden: { opacity: 0, x: 0 },
+            visible: { opacity: 1, x: 0 },
+        };
+
         return (
            <div className="padc bg1 cultre-container">
-                <div className="title" >
-                    Our <span>Culutre</span>
-                </div>
+                <motion.div 
+                    className="title" 
+                    initial="hidden"
+                    whileInView="visible"
+                    variants={textVariants}
+                    transition={{ duration: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                >
+                    {t("Our")} <span>{t("Culutre")}</span>
+                </motion.div>
 
                 <div className="life">
-                    <div className="title">
-                    Life at The Agency
-                    </div>
-                    <div className="contents-1 " >
-                        <div className="contents-left" >
+                    <motion.div 
+                        className="title"
+                        initial="hidden"
+                        whileInView="visible"
+                        variants={textVariants}
+                        transition={{ duration: 1 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                    >
+                        {t("Life at The Agency")}
+                    </motion.div>
+
+                    <div className="contents-1">
+                        <motion.div 
+                            className="contents-left"
+                            initial="hidden"
+                            whileInView="visible"
+                            variants={textVariants}
+                            transition={{ duration: 1 }}
+                            viewport={{ once: true, amount: 0.5 }}
+                        >
                             <span>1</span>
-                            <p className="desc  ">
-                                
-                            Life here is about more than just work. It's about fostering a community 
-                            where creativity blooms, ideas flourish, and growth is a constant. 
-                            From team brainstorming sessions to professional development workshops,
-                             we strive to make every day an opportunity for learning and innovation. 
-                             Our open, dynamic work environment 
-                            is designed to encourage collaboration and the sharing of new ideas.
+                            <p className="desc">
+                                {t("Life")}
                             </p>
-                        </div>
-                        <div className="contents-right">
+                        </motion.div>
+
+                        <motion.div 
+                            className="contents-right"
+                            initial="hidden"
+                            whileInView="visible"
+                            variants={imageVariants}
+                            transition={{ duration: 1 }}
+                            viewport={{ once: true, amount: 0.5 }}
+                        >
                             <img src={img1} alt="" />
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
 
-            <div className="vision">
+                <div className="vision">
+                    <motion.div 
+                        className="title"
+                        initial="hidden"
+                        whileInView="visible"
+                        variants={textVariants}
+                        transition={{ duration: 1 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                    >
+                        {t("Vision and Values")}
+                    </motion.div>
 
-            <div className="title">
-            Vision and Values
-                    </div>
-                    <div className="contents-1 " >
-                    <div className="contents-right">
+                    <div className="contents-1">
+                        <motion.div 
+                            className="contents-right"
+                            initial="hidden"
+                            whileInView="visible"
+                            variants={imageVariants}
+                            transition={{ duration: 1 }}
+                            viewport={{ once: true, amount: 0.5 }}
+                        >
                             <img src={img2} alt="" />
-                        </div>
+                        </motion.div>
 
-                        <div className="contents-left" >
-                            <span >2</span>
-                            <p className="desc  ">
-                                
-                            At The Minaret Marketing Agency,
-                             we're driven by a vision to set new benchmarks in the digital marketing world.
-                              Our core values revolve around collaboration, innovation, and continuous learning. 
-                              We believe that together, we can transform ideas into impactful 
-                              strategies that drive success for our clients and our team.
+                        <motion.div 
+                            className="contents-left"
+                            initial="hidden"
+                            whileInView="visible"
+                            variants={textVariants}
+                            transition={{ duration: 1 }}
+                            viewport={{ once: true, amount: 0.5 }}
+                        >
+                            <span>2</span>
+                            <p className="desc">
+                                {t("At The Minaret Marketing Agency")}
                             </p>
-                        </div>
-                        
+                        </motion.div>
                     </div>
+                </div>
 
-            </div>
+                <div className="diversity">
+                    <motion.div 
+                        className="title"
+                        initial="hidden"
+                        whileInView="visible"
+                        variants={textVariants}
+                        transition={{ duration: 1 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                    >
+                        {t("Diversity and Inclusion Statement")}
+                    </motion.div>
 
-            <div className="diversity">
-            <div className="title">
-            Diversity and Inclusion Statement
-                    </div>
-                    <div className="contents-1 " >
-                        <div className="contents-left" >
+                    <div className="contents-1">
+                        <motion.div 
+                            className="contents-left"
+                            initial="hidden"
+                            whileInView="visible"
+                            variants={textVariants}
+                            transition={{ duration: 1 }}
+                            viewport={{ once: true, amount: 0.5 }}
+                        >
                             <span>3</span>
-                            <p className="desc  ">
-                                
-                            Diversity is our strength, and inclusion is our commitment. 
-                            At The Minaret Marketing Agency, we're dedicated to building a workplace where everyone 
-                            feels valued and included, regardless of their background, identity, or beliefs.
-                             We celebrate the unique perspectives and experiences our team members bring to the table, 
-                            as they enrich our culture and enhance the innovative solutions we provide to our clients.
+                            <p className="desc">
+                                {t("Diversity is our strength")}
                             </p>
-                        </div>
-                        <div className="contents-right">
+                        </motion.div>
+
+                        <motion.div 
+                            className="contents-right"
+                            initial="hidden"
+                            whileInView="visible"
+                            variants={imageVariants}
+                            transition={{ duration: 1 }}
+                            viewport={{ once: true, amount: 0.5 }}
+                        >
                             <img src={img3} alt="" />
-                        </div>
+                        </motion.div>
                     </div>
-
-
-            </div>
-
+                </div>
            </div>
-
         );
     }
 }
- 
-export default Culutre;
+
+export default withTranslation()(Culutre);

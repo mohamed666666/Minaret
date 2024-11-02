@@ -2,9 +2,9 @@ import React from "react";
 import { Component } from "react";
 import './Services.css';
 import arow from '/Assets/Gifs/0.gif';
-
+import { withTranslation } from 'react-i18next';
 import data from '../../../utils/data/data.json';
-
+import i18n from 'i18next';
 
 class Service extends Component {
     state = {
@@ -12,7 +12,7 @@ class Service extends Component {
     };
     handleClick = () => {
         this.props.history.push('/Services');
-      };
+    };
     handleMouseEnter = (index) => {
         this.setState({ hoveredServiceIndex: index });
     };
@@ -25,39 +25,50 @@ class Service extends Component {
         const services = data['services'];
         const serviceCat = data['service_cat'];
         const { hoveredServiceIndex } = this.state;
-
+        const { t } = this.props;
+        const currentLanguage = i18n.language.split('-')[0];
         return (
             <div className="Service_container padc sm:py-[40px] md:py-[100px]">
                 <div className="service-grid">
                     <div className="first">
                         <div className="title text-[50px]">
-                            Our <span>Services</span>
+                            {/* {t("Our")}  <span>{t("Services")} </span> */}
+                            {currentLanguage === 'en' ? (
+                                <>
+                                    {t("Our")} <span>{t("Services")}</span>
+                                </>
+                            ) : (
+                                <span>{t("Services")}</span>
+                            )}
                         </div>
                         <div className="desc">
-                            Explore our comprehensive services designed to elevate your brand and Craft your digital legacy,
-                            brick by brick. Our services guide you from brand identity to peak visibility.
+                            {t("Explore our comprehensive")}
                         </div>
                         <div className="view-more pt-4">
-                            <div className="v-cont"><span>view more</span></div>
-                            <div className="back">
-                                <img src={arow} alt="->" />
-                            </div>
+                            <a href="https://wa.me/96899208915" target="_blank" rel="noopener noreferrer">
+                                <div className="v-cont">
+                                    <span>{t("view more")}</span>
+                                </div>
+                                <div className="back">
+                                    <img src={arow} alt="->" />
+                                </div>
+                            </a>
                         </div>
                     </div>
-   
-                 
+
+
                     {services.map((service, index) => (
                         <div
                             key={index}
                             className="card"
                             onMouseEnter={() => this.handleMouseEnter(index)}
                             onMouseLeave={this.handleMouseLeave}
-                           
+
                         >
                             {hoveredServiceIndex === index ? (
                                 <>
                                     <div className="card-header">
-                                    {index + 1 < 10 ? `0${index + 1}` : index + 1} <span>{service.service_categories[0]}</span>
+                                        {index + 1 < 10 ? `0${index + 1}` : index + 1} <span>{service.service_categories[0]}</span>
                                     </div>
                                     <div className="card-content">
                                         <ul>
@@ -83,7 +94,7 @@ class Service extends Component {
                                         <div className="btm1st">
                                             <img src={arow} alt="->" />
                                         </div>
-                                        <p>Read More</p>
+                                        <p>{t("Read More")} </p>
                                         <div className="btm3d">
                                             <img src={service.service_icon} alt="" />
                                         </div>
@@ -91,11 +102,12 @@ class Service extends Component {
                                 </>
                             )}
                         </div>
+
                     ))}
                 </div>
             </div>
         );
     }
 }
- 
-export default Service;
+
+export default withTranslation()(Service);

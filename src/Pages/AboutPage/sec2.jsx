@@ -2,6 +2,9 @@ import React from "react";
 import { Component } from "react";
 import image from '/Assets/images/AboutPage/pana.png'
 import './about.css';
+import { withTranslation } from 'react-i18next';
+import i18n from 'i18next';
+
 class Sec2 extends Component {  constructor(props) {
     super(props);
     this.rightRef = React.createRef();
@@ -31,16 +34,19 @@ componentDidMount() {
     
 }
     render() { 
+        const { t } = this.props;
+        const currentLanguage = i18n.language.split('-')[0];
         return (
             <section className="sec2 padc bg2" >
                     <div className= {`left-about  ${this.state.isVisible ? 'animate-apear' : ''}`} 
                 ref={this.rightRef} >
                         <div className="title" style={{marginBottom:'10px'}}>
-                        Our <p className="mcolor">Story</p> 
+                        {/* {t("Our")} <p className="mcolor">{t("Story")}</p>  */}
+                        {currentLanguage === 'en' ? ( <> {t("Our")} <p className="mcolor">{t("Story")} </p> </> ) : ( <p className="mcolor"> {t("OurStory")} </p> )}  
                         </div>
                         <div className="desc">
                             <p>
-                            At Minaret Marketing Agency, we carefully chose our name and logo to encapsulate our mission and vision. The name "Minaret" was selected for its connotations of height and the ability to amplify voices, symbolizing our dedication to elevating brands and broadcasting their messages to reach broader audiences. This is complemented by our logo, which incorporates the iconic image of a lighthouse. This emblem represents our commitment to acting as a guiding light for brands, illuminating the way through the complex digital landscape with clarity and precision.
+                            {t("At Minaret Marketing")}
                             </p>
                         </div>
 
@@ -48,7 +54,7 @@ componentDidMount() {
                     <div className={`right  ${this.state.isVisible ? 'animate-apear-2' : ''}`} 
                 ref={this.rightRef} >
                         <div className="imagepana">
-                        <img src={image} alt="" />
+                        <img loading="lazy" src={image} alt="" />
                         </div>
                         
                     </div>
@@ -57,4 +63,4 @@ componentDidMount() {
     }
 }
  
-export default Sec2;
+export default withTranslation()(Sec2);

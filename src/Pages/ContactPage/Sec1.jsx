@@ -1,31 +1,60 @@
 import React from "react";
 import { Component } from "react";
-import image from '/Assets/images/contact/2.png'
+import image from '/Assets/images/contact/2.png';
+import { withTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 class Sec1 extends Component {
-    state = {  } 
+    state = { } 
     render() { 
+        const { t } = this.props;
+
+        const imageVariants = {
+            hidden: { opacity: 0, x: 100 }, 
+            visible: { opacity: 1, x: 0 },  
+        };
+
+        const textVariants = {
+            hidden: { opacity: 0, y: -20 }, 
+            visible: { opacity: 1, y: 0 },  
+        };
+
         return (
-                <section className="padc bg1 Sec">
-                    <div className="sec-left">
-                        <div className="title">
-                            <p>Get <span>in Touch</span></p>
-                        </div>
-                        <div className="sup-title frthcolor mb-4">
-                        Embark on Your Brand's Success Journey with Us
-                        </div>
-
-                        <div className="desc">
-                            <p>Ready to elevate your digital presence and drive your brand towards unparalleled success? At The Minaret Marketing Agency, we're more than just a team; we're your strategic partners in navigating the vast digital landscape. Let's collaborate to turn your vision into reality. Contact us today, and together, we'll embark on a journey that transforms your brand's potential into performance</p>
-                        </div>
+            <section className="padc bg1 Sec">
+                <div className="sec-left">
+                    <div className="title">
+                        <p>{t("Get")} <span>{t("in Touch")}</span></p>
                     </div>
-                    <div className="right ">
-                        <img src={image} alt="" />
+                    <div className="sup-title frthcolor pb-3">
+                        {t("Embark")}
                     </div>
-
-                </section>
+                    
+                    <motion.div 
+                        className="desc"
+                        initial="hidden"
+                        whileInView="visible"
+                        variants={textVariants}
+                        transition={{ duration: 1 }} 
+                        viewport={{ once: true, amount: 0.5 }} 
+                    >
+                        <p>{t("Ready to elevate")}</p> 
+                    </motion.div>
+                </div>
+                
+                <div className="right">
+                    <motion.img 
+                        src={image} 
+                        alt="" 
+                        initial="hidden"
+                        whileInView="visible"
+                        variants={imageVariants}
+                        transition={{ duration: 1 }}
+                        viewport={{ once: true, amount: 0.5 }} 
+                    />
+                </div>
+            </section>
         );
     }
 }
- 
-export default Sec1;
+
+export default withTranslation()(Sec1);

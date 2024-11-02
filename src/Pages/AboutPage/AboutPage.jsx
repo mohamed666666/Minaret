@@ -8,16 +8,24 @@ import Sec2 from "./sec2";
 import Sec4 from "./sec4";
 import Team from "./team";
 import Usps from "./usps";
+
+import { withTranslation } from 'react-i18next';
+import i18n from 'i18next';
+import Parteners from "../../Components/Homecomp/Partenrs/Parteners";
+
 class AboutPage extends Component {
     state = {  } 
     render() { 
+        const currentLanguage = i18n.language.split('-')[0];
+        const { t } = this.props;
         return (
-            <section className="About-page  ">
-                <Header Cap='Learn About Our Agency '/>
+            <section dir={currentLanguage === 'ar' ? 'rtl' : 'ltr'} className="About-page  ">
+                <Header Cap={t("Learn About Our Agency")}/>
                 <Sec1/>
                 <Sec2/>
                 <Sec3/>
                 <Sec4/>
+                <Parteners/>
                 <Usps/>
                 <Team/>
                 
@@ -27,5 +35,5 @@ class AboutPage extends Component {
         );
     }
 }
- 
-export default AboutPage;
+
+export default withTranslation()(AboutPage);

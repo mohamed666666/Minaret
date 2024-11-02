@@ -3,13 +3,17 @@ import { Component } from "react";
 import About from './../../Components/Homecomp/About/About';
 import Hero from './../../Components/Homecomp/Hero/Hero';
 import Service from './../../Components/Homecomp/Services/Service';
-import Parteners from './../../Components/Homecomp/Partenrs/Parteners';
+// import Parteners from './../../Components/Homecomp/Partenrs/Parteners';
 import Portfolio from './../../Components/Homecomp/Portofolio/Pofrtfolio';
 import ClientRev from './../../Components/Homecomp/ClientsReview/ClientRev';
 import Blogs from './../../Components/Homecomp/Blog/Blogs';
 import Game from './../../Components/Homecomp/Game/Game'
 import Contact from "../../Components/Homecomp/Contact/Contactus";
+import Calculator from "../../Components/Homecomp/Calculator/Calculator";
+import Service2 from "../../Components/Homecomp/Services/newService";
 import './home.css';
+import Partenrs2 from "../../Components/Homecomp/Partenrs/Partenrs2";
+
 class Home extends Component {
     state = {}
     render() {
@@ -17,12 +21,14 @@ class Home extends Component {
             <div className="Home">
                 <Hero />
                 <About />
-                <Service />
-                <Parteners />
+                <Service2/>
+                <Calculator/>
+                <Partenrs2 />
                 <Portfolio />
                 <ClientRev />
                 <Blogs />
                 <Game/>
+              
                 <Contact/>
             </div>
         );
