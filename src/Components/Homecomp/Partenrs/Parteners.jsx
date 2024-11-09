@@ -40,18 +40,19 @@ const Parteners = ({t}) => {
                     slidesToShow: 3,
                 },
             },
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 3,
-                },
-            },
+           
             {
                 breakpoint: 768,
                 settings: {
-                    slidesToShow: 3,
+                    slidesToShow: 2,
                 },
             },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 4,
+                },
+            }
         ],
     };
 
@@ -76,7 +77,7 @@ const Parteners = ({t}) => {
                 initial={{ x: -100, opacity: 0 }}
                 animate={inView ? { x: 0, opacity: 1 } : { x: -100, opacity: 0 }} 
                 transition={{ duration: 0.6 }}
-                className="flex gap-2 title md:text-[50px]"
+                className="flex ps-2 gap-2 title md:text-[50px]"
             >
         {t("Our")}<span>
             {showText && (
